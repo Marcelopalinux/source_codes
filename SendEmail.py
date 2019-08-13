@@ -13,7 +13,7 @@ smtp_object.starttls()
 #User = input("User: ")
 #password = input("Password: ")
 try:
-    smtp_object.login(from_1,"megadoido")
+    smtp_object.login(from_1,"")
     print('Logado')
 except:
     print("Error na autenticação")
