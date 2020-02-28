@@ -1,12 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 from selenium import webdriver
 import time
 import pandas as pd
+import matplotlib.pyplot as plt
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
@@ -25,55 +20,15 @@ for item in items:
     tabela.append(colunas)
 driver.close()
 driver.quit()
-    
-
-
-# In[3]:
-
-
 df = pd.DataFrame(tabela[1:17],columns=['Colocação','Time','PG','J','V','E','D','GP','GC','SG','%A','PP','I','%V','RL','RB'])
-
-
-# In[4]:
-
-
 df.set_index("Colocação",inplace=True)
-
-
-# In[5]:
-
-
-df
-
-
-# In[6]:
-
 
 def moeda_converte(valor):
     valor = float(valor.replace('R$','').replace('.','').replace(',','.'))
     return  valor
-
-
-# In[7]:
-
-
 df['RL'] = df['RL'].apply(moeda_converte)
 df['RB'] = df['RB'].apply(moeda_converte)
 
-
-# In[8]:
-
-
-df
-
-
-# In[9]:
-
-
-import matplotlib.pyplot as plt
-
-
-# In[11]:
 
 
 plt.figure(figsize=(100,50))
@@ -82,9 +37,6 @@ plt.bar(df['Time'],df['RL'])
 plt.ylabel('Valores em R$')
 plt.xlabel('Times do Paulistão 2020')
 plt.title('Renda Liquida de cada Time do Paulistao 2020')
-
-
-# In[17]:
 
 
 plt.figure(figsize=(100,50))
@@ -96,8 +48,6 @@ plt.ylim(0,25)
 plt.title('PONTOS GERAIS NO CAMPEONATO')
 
 
-# In[21]:
-
 
 plt.figure(figsize=(100,50))
 plt.rcParams.update({'font.size': 50})
@@ -106,10 +56,4 @@ plt.ylabel('Média de Gols por partida')
 plt.xlabel('Times do Paulistão 2020')
 plt.ylim(0,5)
 plt.title('MEDIAS')
-
-
-# In[ ]:
-
-
-
 
