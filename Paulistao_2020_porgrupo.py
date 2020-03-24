@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
-
+# esse trecho abaixo estou capturando os dados da pagina e adicionando numa lista
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument("--test-type")
@@ -28,7 +28,7 @@ for i in items:
 driver.close()
 driver.quit()
 
-# crindo um grupo para criar um MultiIndex, o exemplo abaixo, cria-se um indice 16 x 16
+# criando um grupo para criar um MultiIndex, o exemplo abaixo, cria-se um indice 16 x 16
 # 4 itens da lista b em cada elemento da lista A
 grupos_colocacao = [['Grupo A','Grupo B','Grupo C', 'Grupo D'],['1º','2º','3º','4º']]
 indice = pd.MultiIndex.from_product(grupos_colocacao,names=['Grupos', 'Colocação'])
