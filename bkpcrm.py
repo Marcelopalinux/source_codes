@@ -53,12 +53,12 @@ except Exception as e:
     print("error on append file"+e)
 
 ftp = ftplib.FTP()
-host = "187.45.195.107"
+host = "IP DO FTP"
 port = 21
 ftp.connect(host, port)
 try:
      print ("Logging in...")
-     ftp.login("vtiger@interon3", "vtiger@Interon3035")
+     ftp.login("USER FTP", "PWD FTP")
 except:
      print("failed to login")
 try:
